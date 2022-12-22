@@ -19,5 +19,13 @@ export const authOptions = {
         clientSecret: process.env.GOOGLE_SECRET!,
       }),
   ],
+    callbacks: {
+    async session({ session, token, user }:any) {
+      // const data=await prisma.onboarding.findMany({where:{entityShortName: 'Bishal'}})
+      // console.log(data)
+      // session.role=data[0].entityRepresentativeRole; 
+      return session;
+    }
+  }
 }
 export default NextAuth(authOptions)
